@@ -1,8 +1,7 @@
-<!-- COUCOU JB -->
 <!DOCTYPE html>
 <html data-ng-app="mainApp" data-ng-cloak>
 <head>
-	<base href="http://127.0.0.1/my-open-beer-angular/">
+	<base href="<?php echo $_SERVER['REQUEST_URI'] ?>">
 	<meta charset="UTF-8">
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
