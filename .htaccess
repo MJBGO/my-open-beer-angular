@@ -1,11 +1,11 @@
 <IfModule mod_rewrite.c>
     Options +FollowSymlinks
     RewriteEngine On
-    RewriteBase /my-open-beer-angular/
+    RewriteBase /
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !.*\.(css|js|html|png|jpg|jpeg|gif|txt|ttf|woff)
-    RewriteRule (.*) index.html [L]
+    RewriteRule (.*) index.php [L]
 </IfModule>
 
  <IfModule mod_expires.c>

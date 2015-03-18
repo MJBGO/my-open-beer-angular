@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-ng-app="mainApp" data-ng-cloak>
 <head>
-	<base href="<?php echo $_SERVER['REQUEST_URI'] ?>">
+	<base href="/">
 	<meta charset="UTF-8">
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
