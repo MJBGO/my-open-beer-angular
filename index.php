@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html data-ng-app="mainApp" data-ng-cloak>
 <head>
-	<base href="/">
+    <?php
+        if ($_SERVER['SERVER_NAME'] != 'local.dev') {
+            $base = '/';
+        } else {
+            $base = '/formation_angularJS/project-openbeer/';
+        }
+    ?>
+	<base href="<?php echo $base ?>">
 	<meta charset="UTF-8">
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
