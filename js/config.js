@@ -32,13 +32,13 @@ module.exports=function($routeProvider,$locationProvider,$httpProvider) {
         controller: 'BeersController'
     }).when('/beers/new', {
         templateUrl: 'templates/beers/beerForm.html',
-        controller: 'BeersAddController'
+        controller: 'BeerAddController'
     }).when('/beers/update', {
         templateUrl: 'templates/beers/beerForm.html',
-        controller: 'BeersUpdateController'
+        controller: 'BeerUpdateController'
     }).when('/beers/details', {
         templateUrl: 'templates/beers/details.html',
-        controller: 'BeersDetailsController'
+        controller: 'BeerDetailsController'
     }).otherwise({
 		redirectTo: '/'
 	});

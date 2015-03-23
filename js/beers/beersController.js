@@ -134,5 +134,5 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 			save.addOperation("Deleted",$scope.removeOne,Beer);
 			Beer.deleted=$scope.hideDeleted;
 		}
-	}
+	};
 };

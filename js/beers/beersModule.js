@@ -1,6 +1,6 @@
 var appBeers = angular.module("BeersApp", []).
 controller("BeersController", ["$scope","rest","$timeout","$location","config","$route","save",require("./beersController")]).
-controller("BeersAddController",["$scope","config","$location","rest","save","$document","modalService",require("./beersAddController")]).
-controller("BeersDetailsController",["$scope","config","$location",require("./beersDetailsController")]).
-controller("BeersUpdateController",["$scope","config","$location","rest","save","$document","modalService","$controller",require("./beersUpdateController")]);
+controller("BeerAddController",["$scope","config","$location","rest","save","$document","modalService",require("./beerAddController")]).
+controller("BeerDetailsController",["$scope","config","$location",require("./beerDetailsController")]).
+controller("BeerUpdateController",["$scope","config","$location","rest","save","$document","modalService","$controller",require("./beerUpdateController")]);
 module.exports=angular.module("BeersApp").name;
