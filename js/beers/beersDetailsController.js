@@ -1,13 +1,13 @@
 module.exports=function($scope,config,$location) {
 
-    $scope.brewery = config.activeBrewery;
+    $scope.beer = config.activeBeer;
 
-    if (angular.isUndefined(config.activeBrewery)) {
-        $location.path("breweries/");
+    if (angular.isUndefined(config.activeBeer)) {
+        $location.path("beers/");
     }
     else{
-        if($scope.brewery.photo == null || $scope.brewery.photo == ""){
-            $scope.brewery.photo = "img/beer.jpg"
+        if($scope.beer.photo == null || $scope.beer.photo == ""){
+            $scope.brewery.photo = "beer.jpg";
         }
     }
 };
