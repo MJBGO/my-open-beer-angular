@@ -25,9 +25,12 @@ module.exports=function($routeProvider,$locationProvider,$httpProvider) {
 		templateUrl: 'templates/config.html',
 		controller: 'ConfigController'
 	}).when('/beers', {
-            templateUrl: 'templates/beers/main.html',
-            controller: 'BeersController'
-        }).otherwise({
+        templateUrl: 'templates/beers/main.html',
+        controller: 'BeersController'
+    }).when('/beers/details', {
+        templateUrl: 'templates/beers/details.html',
+        controller: 'BeersDetailsController'
+    }).otherwise({
 		redirectTo: '/'
 	});
 	if(window.history && window.history.pushState){
