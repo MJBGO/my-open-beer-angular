@@ -18,7 +18,10 @@ module.exports=function($routeProvider,$locationProvider,$httpProvider) {
 	}).when('/breweries/update', {
 		templateUrl: 'templates/breweries/breweryForm.html',
 		controller: 'BreweryUpdateController'
-	}).when('/saves', {
+    }).when('/breweries/details', {
+        templateUrl: 'templates/breweries/details.html',
+        controller: 'BreweryDetailsController'
+    }).when('/saves', {
 		templateUrl: 'templates/saveMain.html',
 		controller: 'SaveController'
 	}).when('/config', {

@@ -354,13 +354,28 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		}
 	}
 };
+},{}],"C:\\wamp\\www\\openbeer\\js\\beers\\beersDetailsController.js":[function(require,module,exports){
+module.exports=function($scope,config,$location) {
+
+    $scope.brewery = config.activeBrewery;
+
+    if (angular.isUndefined(config.activeBrewery)) {
+        $location.path("breweries/");
+    }
+    else{
+        if($scope.brewery.photo == null || $scope.brewery.photo == ""){
+            $scope.brewery.photo = "img/beer.jpg"
+        }
+    }
+};
 },{}],"C:\\wamp\\www\\openbeer\\js\\beers\\beersModule.js":[function(require,module,exports){
 var appBeers = angular.module("BeersApp", []).
 controller("BeersController", ["$scope","rest","$timeout","$location","config","$route","save",require("./beersController")]).
 controller("BeersAddController",["$scope","config","$location","rest","save","$document","modalService",require("./beersAddController")]).
+controller("BeersDetailsController",["$scope","config","$location",require("./beersDetailsController")]).
 controller("BeersUpdateController",["$scope","config","$location","rest","save","$document","modalService","$controller",require("./beersUpdateController")]);
 module.exports=angular.module("BeersApp").name;
-},{"./beersAddController":"C:\\wamp\\www\\openbeer\\js\\beers\\beersAddController.js","./beersController":"C:\\wamp\\www\\openbeer\\js\\beers\\beersController.js","./beersUpdateController":"C:\\wamp\\www\\openbeer\\js\\beers\\beersUpdateController.js"}],"C:\\wamp\\www\\openbeer\\js\\beers\\beersUpdateController.js":[function(require,module,exports){
+},{"./beersAddController":"C:\\wamp\\www\\openbeer\\js\\beers\\beersAddController.js","./beersController":"C:\\wamp\\www\\openbeer\\js\\beers\\beersController.js","./beersDetailsController":"C:\\wamp\\www\\openbeer\\js\\beers\\beersDetailsController.js","./beersUpdateController":"C:\\wamp\\www\\openbeer\\js\\beers\\beersUpdateController.js"}],"C:\\wamp\\www\\openbeer\\js\\beers\\beersUpdateController.js":[function(require,module,exports){
 module.exports=function($scope,config,$location,rest,save,$document,modalService, $controller){
 	$controller('BeerAddController', {$scope: $scope});
 
@@ -430,6 +445,10 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 	$scope.showUpdate=function(){
 		return angular.isDefined($scope.activeBrewery);
 	};
+
+    $scope.showDetails=function(){
+        return angular.isDefined($scope.activeBrewery);
+    };
 	
 	$scope.refreshOnAsk=function(){
 		return config.breweries.refresh == 'ask';
@@ -481,6 +500,14 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 			}
 		});
 	};
+
+    $scope.details=function(brewery){
+        if(angular.isDefined(brewery))
+            $scope.activeBrewery=brewery;
+        config.activeBrewery=angular.copy($scope.activeBrewery);
+        config.activeBrewery.reference=$scope.activeBrewery;
+        $location.path("breweries/details");
+    };
 	
 	$scope.edit=function(brewery){
 		if(angular.isDefined(brewery))
@@ -527,13 +554,28 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		}
 	}
 };
+},{}],"C:\\wamp\\www\\openbeer\\js\\breweries\\breweriesDetailsController.js":[function(require,module,exports){
+module.exports=function($scope,config,$location) {
+
+    $scope.brewery = config.activeBrewery;
+
+    if (angular.isUndefined(config.activeBrewery)) {
+        $location.path("breweries/");
+    }
+    else{
+        if($scope.brewery.photo == null || $scope.brewery.photo == ""){
+            $scope.brewery.photo = "breweries.jpg";
+        }
+    }
+};
 },{}],"C:\\wamp\\www\\openbeer\\js\\breweries\\breweriesModule.js":[function(require,module,exports){
 var appBreweries=angular.module("BreweriesApp", []).
 controller("BreweriesController", ["$scope","rest","$timeout","$location","config","$route","save",require("./breweriesController")]).
 controller("BreweryAddController",["$scope","config","$location","rest","save","$document","modalService",require("./breweryAddController")]).
+controller("BreweryDetailsController",["$scope","config","$location",require("./breweriesDetailsController")]).
 controller("BreweryUpdateController",["$scope","config","$location","rest","save","$document","modalService","$controller",require("./breweryUpdateController")]);
 module.exports=angular.module("BreweriesApp").name;
-},{"./breweriesController":"C:\\wamp\\www\\openbeer\\js\\breweries\\breweriesController.js","./breweryAddController":"C:\\wamp\\www\\openbeer\\js\\breweries\\breweryAddController.js","./breweryUpdateController":"C:\\wamp\\www\\openbeer\\js\\breweries\\breweryUpdateController.js"}],"C:\\wamp\\www\\openbeer\\js\\breweries\\breweryAddController.js":[function(require,module,exports){
+},{"./breweriesController":"C:\\wamp\\www\\openbeer\\js\\breweries\\breweriesController.js","./breweriesDetailsController":"C:\\wamp\\www\\openbeer\\js\\breweries\\breweriesDetailsController.js","./breweryAddController":"C:\\wamp\\www\\openbeer\\js\\breweries\\breweryAddController.js","./breweryUpdateController":"C:\\wamp\\www\\openbeer\\js\\breweries\\breweryUpdateController.js"}],"C:\\wamp\\www\\openbeer\\js\\breweries\\breweryAddController.js":[function(require,module,exports){
 module.exports=function($scope,config,$location,rest,save,$document,modalService) {
 	
 	$scope.data={};
@@ -650,7 +692,10 @@ module.exports=function($routeProvider,$locationProvider,$httpProvider) {
 	}).when('/breweries/update', {
 		templateUrl: 'templates/breweries/breweryForm.html',
 		controller: 'BreweryUpdateController'
-	}).when('/saves', {
+    }).when('/breweries/details', {
+        templateUrl: 'templates/breweries/details.html',
+        controller: 'BreweryDetailsController'
+    }).when('/saves', {
 		templateUrl: 'templates/saveMain.html',
 		controller: 'SaveController'
 	}).when('/config', {
@@ -697,7 +742,7 @@ module.exports=function() {
 	factory.breweries.refresh="all";//all|ask
 	factory.breweries.update="immediate";//deffered|immediate
 
-    factory.activeBeers=undefined;
+    factory.activeBeer=undefined;
     factory.beers.loaded=false;
     factory.beers.refresh="all";//all|ask
     factory.beers.update="immediate";//deffered|immediate
