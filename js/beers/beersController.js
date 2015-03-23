@@ -22,12 +22,16 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 	
 	$scope.refresh=function(){
 		save.executeAll();
-	}
+	};
 	
 	$scope.showUpdate=function(){
 		return angular.isDefined($scope.activeBeer);
 	};
-	
+
+    $scope.showDetails=function() {
+        return angular.isDefined($scope.activeBeer);
+    };
+
 	$scope.refreshOnAsk=function(){
 		return config.beers.refresh == 'ask';
 	};
@@ -86,6 +90,14 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		config.activeBeer.reference=$scope.activeBeer;
 		$location.path("beers/update");
 	};
+
+    $scope.details=function(Beer){
+        if(angular.isDefined(Beer))
+            $scope.activeBeer=Beer;
+        config.activeBeer=angular.copy($scope.activeBeer);
+        config.activeBeer.reference=$scope.activeBeer;
+        $location.path("beers/details");
+    };
 	
 	$scope.update=function(Beer,force,callback){
 		if(angular.isUndefined(Beer)){

@@ -7,7 +7,7 @@ module.exports=function($scope,config,$location) {
     }
     else{
         if($scope.beer.photo == null || $scope.beer.photo == ""){
-            $scope.brewery.photo = "beer.jpg";
+            $scope.beer.photo = "beer.png";
         }
     }
 };
