@@ -116,8 +116,8 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 				save.addOperation("New",$scope.update,Beer);
 				$location.path("beers");
 			}
-	}
-	
+	};
+
 	$scope.remove=function(){
 		angular.forEach($scope.data.beers, function(value, key) {
 			if(value.selected){

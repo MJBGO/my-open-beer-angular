@@ -1,5 +1,5 @@
 angular.module("mainApp",["ngRoute","ngResource","ngAnimate",require("./breweries/breweriesModule"),require("./beers/beersModule"),require("./config/configModule")]).
-controller("MainController", ["$scope","$location","save","$window",require("./mainController")]).
+controller("MainController", ["$scope","$http", "$location","save","$window", "modalConnexion", "config",require("./mainController")]).
 controller("SaveController", ["$scope","$location","save",require("./save/saveController")]).
 service("rest", ["$http","$resource","$location","config","$sce",require("./services/rest")]).
 service("save", ["rest","config","$route",require("./services/save")]).
@@ -9,6 +9,7 @@ directive("sortBy", [require("./addons/sortBy")]).
 directive("Drag",require("./addons/drag")).
 directive("bsModal",["$q",require("./addons/modal")]).
 service("modalService",["$q","$compile","$rootScope","$sce",require("./addons/modalService")]).
+service("modalConnexion",["$q","$compile","$rootScope","$sce",require("./addons/modalConnexion")]).
 run(['$rootScope','$location', '$routeParams', function($rootScope, $location, $routeParams) {
 	$rootScope.$on('$routeChangeSuccess', function(e, current, pre) {
 		var paths=$location.path().split("/");

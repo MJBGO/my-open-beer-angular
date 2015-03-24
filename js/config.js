@@ -39,8 +39,11 @@ module.exports=function($routeProvider,$locationProvider,$httpProvider) {
     }).when('/beers/details', {
         templateUrl: 'templates/beers/details.html',
         controller: 'BeerDetailsController'
+    }).when('/login', {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginController'
     }).otherwise({
-		redirectTo: '/'
+        redirectTo: '/'
 	});
 	if(window.history && window.history.pushState){
 		$locationProvider.html5Mode(true);

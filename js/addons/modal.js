@@ -5,7 +5,7 @@ module.exports=function($q) {
 		templateUrl: 'js/addons/templates/modal.html',
 		transclude: true,
 		replace:true,
-		controller:function($scope){
+		controller:function($scope) {
 			$scope.isDismiss=function(button){
 				result="";
 				if(button.dismiss=="true" || button.dismiss===true)
