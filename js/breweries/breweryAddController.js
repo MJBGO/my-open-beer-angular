@@ -28,7 +28,7 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 		return;
 	});
 	
-	$scope.update=function(brewery,force,callback){
+	$scope.mode=function(brewery,force,callback){
 		if($scope._update(brewery,force,callback)==true){
 			$location.path("breweries");
 		}
@@ -44,10 +44,10 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 		};
 		$scope.data.breweries.push(brewery);
 		brewery.created_at=new Date();
-		if(config.breweries.update==="immediate" || force){
+		if(config.breweries.mode==="log" || force){
 			rest.post($scope.data,"breweries",brewery.name,callback);
 		}else{
-			save.addOperation("New",$scope.update,brewery);
+			save.addOperation("New",$scope.mode,brewery);
 			result=true;
 		}
 		return result;

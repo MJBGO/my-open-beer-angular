@@ -37,7 +37,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 	};
 	
 	$scope.defferedUpdate=function(){
-		return config.beers.update == 'deffered';
+		return config.beers.mode == 'unlog';
 	};
 	
 	$scope.setActive=function(Beer){
@@ -110,7 +110,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		};
 		$scope.data.beers.push(Beer);
 		Beer.created_at=new Date();
-			if(config.beers.update==="immediate" || force){
+			if(config.beers.mode==="log" || force){
 				rest.post($scope.data,"beers",Beer.name,callback);
 			}else{
 				save.addOperation("New",$scope.update,Beer);
@@ -127,7 +127,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		return true;
 	};
 	$scope.removeOne=function(Beer,force,callback){
-		if(config.beers.update==="immediate" || force){
+		if(config.beers.mode==="log" || force){
 			Beer.deleted=true;
 			rest.remove(Beer,"beers",callback);
 		}else{

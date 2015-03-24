@@ -29,11 +29,11 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 
 			config.activeBeer.reference.updated_at=new Date();
 			
-			if(config.beers.update==="immediate" || force)
+			if(config.beers.update==="log" || force)
 				rest.put(config.activeBeer.id,$scope.data,"beers",config.activeBeer.name,callback);
 			else{
 				config.activeBeer.reference.flag="Updated";
-				save.addOperation("Updated",$scope.update,config.activeBeer.reference);
+				save.addOperation("Updated",$scope.mode,config.activeBeer.reference);
 				result=true;
 			}
 		}else{

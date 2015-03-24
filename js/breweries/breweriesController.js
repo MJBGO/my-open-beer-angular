@@ -5,7 +5,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 	
 	$scope.messages=rest.messages;
 	
-	if(config.breweries.refresh==="all" || !config.breweries.loaded){
+	if(config.breweries.mode==="all" || !config.breweries.loaded){
 		$scope.data.load=true;
 		rest.getAll($scope.data,"breweries");
 		config.breweries.loaded=true;
@@ -20,7 +20,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		});
 	};
 	
-	$scope.refresh=function(){
+	$scope.mode=function(){
 		save.executeAll();
 	}
 	
@@ -33,11 +33,11 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
     };
 	
 	$scope.refreshOnAsk=function(){
-		return config.breweries.refresh == 'ask';
+		return config.breweries.mode == 'log';
 	};
 	
 	$scope.defferedUpdate=function(){
-		return config.breweries.update == 'deffered';
+		return config.breweries.mode == 'unlog';
 	};
 	
 	$scope.setActive=function(brewery){
@@ -96,10 +96,10 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 			$scope.activeBrewery=brewery;
 		config.activeBrewery=angular.copy($scope.activeBrewery);
 		config.activeBrewery.reference=$scope.activeBrewery;
-		$location.path("breweries/update");
+		$location.path("breweries/mode");
 	}
 	
-	$scope.update=function(brewery,force,callback){
+	$scope.mode=function(brewery,force,callback){
 		if(angular.isUndefined(brewery)){
 			brewery=$scope.activeBrewery;
 		}
@@ -110,10 +110,10 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		};
 		$scope.data.breweries.push(brewery);
 		brewery.created_at=new Date();
-			if(config.breweries.update==="immediate" || force){
+			if(config.breweries.mode==="immediate" || force){
 				rest.post($scope.data,"breweries",brewery.name,callback);
 			}else{
-				save.addOperation("New",$scope.update,brewery);
+				save.addOperation("New",$scope.mode,brewery);
 				$location.path("breweries");
 			}
 	}
@@ -127,7 +127,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		return true;
 	};
 	$scope.removeOne=function(brewery,force,callback){
-		if(config.breweries.update==="immediate" || force){
+		if(config.breweries.mode==="immediate" || force){
 			brewery.deleted=true;
 			rest.remove(brewery,"breweries",callback);
 		}else{

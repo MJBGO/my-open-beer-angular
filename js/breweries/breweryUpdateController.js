@@ -24,11 +24,11 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 			config.activeBrewery.reference.url=$scope.activeBrewery.url;
 			config.activeBrewery.reference.updated_at=new Date();
 			
-			if(config.breweries.update==="immediate" || force)
+			if(config.breweries.mode==="log" || force)
 				rest.put(config.activeBrewery.id,$scope.data,"breweries",config.activeBrewery.name,callback);
 			else{
 				config.activeBrewery.reference.flag="Updated";
-				save.addOperation("Updated",$scope.update,config.activeBrewery.reference);
+				save.addOperation("Updated",$scope.mode,config.activeBrewery.reference);
 				result=true;
 			}
 		}else{

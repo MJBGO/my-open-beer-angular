@@ -1,41 +1,22 @@
 	<form name="frmConfig" data-ng-submit="frmConfig.$valid && update()" novalidate data-ng-init="setFormScope(this)">
-		<fieldset>
-			<legend>Rafraîchissements</legend>
-			<div class="form-group">
-				<label for="name">Breweries</label>
-					<div class="radio">
-						<label>
-							<input type="radio" name="breweriesRefresh" value="all" data-ng-model="config.breweries.refresh">
-							Recharger à chaque affichage
-						</label>
-					</div>
-				<div class="radio">
-					<label>
-						<input type="radio" name="breweriesRefresh" id="breweriesRefresh2" value="ask" data-ng-model="config.breweries.refresh">
-						A la demande
-					</label>
-				</div>
-			</div>
-		</fieldset>
+        <fieldset>
+            <legend>Mode</legend>
+            <div class="form-group">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="mode" value="log" data-ng-model="config.breweries.mode">
+                        Connecté
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="mode" id="mode" value="unlog" data-ng-model="config.breweries.mode">
+                        Non-connecté.
+                    </label>
+                </div>
+            </div>
+        </fieldset>
 
-		<fieldset>
-			<legend>Mise à jour</legend>
-			<div class="form-group">
-				<label for="name">Breweries</label>
-					<div class="radio">
-						<label>
-							<input type="radio" name="breweriesUpdate" value="immediate" data-ng-model="config.breweries.update">
-							Immédiate
-						</label>
-					</div>
-				<div class="radio">
-					<label>
-						<input type="radio" name="breweriesUpdate" id="breweriesUpdate2" value="deffered" data-ng-model="config.breweries.update">
-						A la demande
-					</label>
-				</div>
-			</div>
-		</fieldset>
 
 		<fieldset>
 			<legend>Paramétres d'accès au serveur distant</legend>
