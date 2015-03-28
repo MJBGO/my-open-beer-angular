@@ -1,4 +1,5 @@
-module.exports=function($scope,config,$location,rest,save,$document,modalService, $controller){
+module.exports=function($scope,config,$location,rest,save,$document,modalService, $controller,user){
+    user.redirectIfNotLogged();
 	$controller('BreweryAddController', {$scope: $scope});
 
 	if(angular.isUndefined(config.activeBrewery)){

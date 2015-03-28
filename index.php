@@ -38,8 +38,8 @@
     <div class="breadcrumb">
         <div class="pull-right">
             {{messageEtatConnexion()}}
-            <button ng-show="connecte" class="btn btn-danger" ng-model="deco" ng-click="deconnexion()">Se déconnecter</button>
-            <button ng-show="!connecte" class="btn" ng-class="{'btn-success': afficherChamps, 'btn-warning': !afficherChamps}" ng-model="co" ng-click="connexionModal()">Se connecter</button>
+            <button data-ng-show="isLogged()" class="btn btn-danger" data-ng-click="disconnect()">Se déconnecter</button>
+            <button data-ng-show="!isLogged()" class="btn btn-default" data-ng-click="connectModal()">Connexion</button>
         </div>
         <div style="clear: both"></div>
     </div>

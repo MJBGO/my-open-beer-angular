@@ -1,4 +1,4 @@
-module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
+module.exports=function($scope,rest,$timeout,$location,config,$route,save,user) {
 	$scope.data={load:false};
 
 	$scope.sortBy={field:"name",asc:false};
@@ -22,10 +22,14 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 	
 	$scope.mode=function(){
 		save.executeAll();
-	}
-	
+	};
+
+    $scope.showAdd=function() {
+        return user.isLogged();
+    };
+
 	$scope.showUpdate=function(){
-		return angular.isDefined($scope.activeBrewery);
+		return angular.isDefined($scope.activeBrewery) && user.isLogged();
 	};
 
     $scope.showDetails=function(){
@@ -60,7 +64,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 			message.deleted=true;
 		},5000);
 		return true;
-	}
+	};
 	
 	$scope.countSelected=function(){
 		var result=0;
@@ -97,7 +101,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 		config.activeBrewery=angular.copy($scope.activeBrewery);
 		config.activeBrewery.reference=$scope.activeBrewery;
 		$location.path("breweries/mode");
-	}
+	};
 	
 	$scope.mode=function(brewery,force,callback){
 		if(angular.isUndefined(brewery)){
@@ -116,7 +120,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save) {
 				save.addOperation("New",$scope.mode,brewery);
 				$location.path("breweries");
 			}
-	}
+	};
 	
 	$scope.remove=function(){
 		angular.forEach($scope.data.breweries, function(value, key) {

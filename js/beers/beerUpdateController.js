@@ -1,4 +1,5 @@
-module.exports=function($scope,config,$location,rest,save,$document,modalService, $controller){
+module.exports=function($scope,config,$location,rest,save,$document,modalService, $controller,user){
+    user.redirectIfNotLogged();
 	$controller('BeerAddController', {$scope: $scope});
 
 	if(angular.isUndefined(config.activeBeer)){
@@ -9,9 +10,9 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 	$scope._update=function(beer,force,callback){
 		var result=false;
 		if(force || $scope.frmBeer.$dirty){
-			if(angular.isUndefined(beer)){
+			if(angular.isUndefined(beer)) {
 				beer=$scope.activeBeer;
-			}else{
+			} else {
 				config.activeBeer=angular.copy(beer);
 				config.activeBeer.reference=beer;
 			}

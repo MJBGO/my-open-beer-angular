@@ -1,8 +1,9 @@
 angular.module("mainApp",["ngRoute","ngResource","ngAnimate",require("./breweries/breweriesModule"),require("./beers/beersModule"),require("./config/configModule")]).
-controller("MainController", ["$scope","$http", "$location","save","$window", "modalConnexion", "config",require("./mainController")]).
+controller("MainController", ["$scope","$http", "$location","save","$window", "modalConnexion", "config", "user", require("./mainController")]).
 controller("SaveController", ["$scope","$location","save",require("./save/saveController")]).
 service("rest", ["$http","$resource","$location","config","$sce",require("./services/rest")]).
 service("save", ["rest","config","$route",require("./services/save")]).
+service("user", ["$http","$location","config",require("./services/user")]).
 config(["$routeProvider","$locationProvider","$httpProvider",require("./config")]).
 filter("NotDeletedFilter",require("./addons/notDeletedFilter")).
 directive("sortBy", [require("./addons/sortBy")]).

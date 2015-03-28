@@ -1,6 +1,6 @@
 module.exports=function($routeProvider,$locationProvider,$httpProvider) {
 	//$httpProvider.defaults.useXDomain = true;
-	//$httpProvider.defaults.withCredentials = true;
+	$httpProvider.defaults.withCredentials = true;
 	delete $httpProvider.defaults.headers.common["X-Requested-With"];
 	$routeProvider.
 	when('/', {
@@ -42,6 +42,8 @@ module.exports=function($routeProvider,$locationProvider,$httpProvider) {
     }).when('/login', {
         templateUrl: 'templates/login.html',
         controller: 'LoginController'
+    }).when('/401', {
+        templateUrl: 'templates/errors/401.html'
     }).otherwise({
         redirectTo: '/'
 	});

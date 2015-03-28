@@ -1,5 +1,5 @@
-module.exports=function($scope,config,$location,rest,save,$document,modalService) {
-	
+module.exports=function($scope,config,$location,rest,save,$document,modalService,user) {
+    user.redirectIfNotLogged();
 	$scope.data={};
 	$scope.data["breweries"]=config.breweries.all;
 	var self=this;
