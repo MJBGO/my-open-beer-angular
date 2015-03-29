@@ -39,3 +39,24 @@ Nous avons essayé de garder un code le plus logique possible.
 
 Il est hébergé par nos soins à l'adresse http://openbeer.jbgomond.com
 
+# Captures
+
+Listes des brasseurs en mode non connecté (1 bouton)
+
+![breweriesnotlogged](http://img11.hostingpics.net/pics/600539Capture1.png)
+
+Affichage d'un brasseur
+
+![detailsbrewery](http://img11.hostingpics.net/pics/725103Capture2.png)
+
+Listes des bières en mode non connecté (1 bouton)
+
+![detailsbrewery](http://img11.hostingpics.net/pics/569854Capture3.png)
+
+Affichage d'une bière
+
+![detailsbrewery](http://img11.hostingpics.net/pics/924535Capture4.png)
+
+Affichage d'une bière
+
+![detailsbrewery](http://img11.hostingpics.net/pics/924535Capture4.png)
