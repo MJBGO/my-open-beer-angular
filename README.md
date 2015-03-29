@@ -11,7 +11,7 @@ Veuillez modifier la base du projet dans le fichier index.php
         <base href="/">
 ```
 
-Attention : Veuillez recompiler le fichier bundle.js à l'aide de browserify
+Attention : Veuillez recompiler le fichier bundle.js à l'aide de browserify. Les dossiers comportant nodejs ont été retiré.
 
 # Répartition des tâches
 
@@ -28,4 +28,14 @@ Attention : Veuillez recompiler le fichier bundle.js à l'aide de browserify
 ### Fonction non implémentée par manque de temps
 - ![todo](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/17-24.png) 7- Affichage des bières par brasserie
 
+### Fonction bonus
+- ![todo](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/17-24.png) 8.1 - Cookie de connexion
+
+Nous avons implémenté cette fonction en créant un service user. La méthode check de ce service est appellée au chargement de la page et permet de vérifier si la session existe toujours.
+
+Nous avons essayé de garder un code le plus logique possible.
+
+# Serveur REST
+
+Il est hébergé par nos soins à l'adresse http://openbeer.jbgomond.com
 
