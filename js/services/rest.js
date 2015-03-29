@@ -5,7 +5,8 @@ module.exports=function($http,$resource,$location,restConfig,$sce) {
 	
 	this.getParams=function(){
 		return '?token='+restConfig.server.privateToken+'&force='+restConfig.server.force;
-	}
+	};
+
 	this.headers={ 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
 			'Accept': 'application/json'
 	};
