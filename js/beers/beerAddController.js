@@ -18,7 +18,6 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 						$location.path(newUrl.substring($location.absUrl().length - $location.url().length));
 					}
 				}else if(value=="Continuer"){
-					console.log(value);
 					onRouteChangeOff();
 					$location.path(newUrl.substring($location.absUrl().length - $location.url().length));
 				}
@@ -39,8 +38,10 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 			beer=$scope.activeBeer;
 		}
 		$scope.data.posted={
-			"name" : beer.name,
-			"url"  : beer.url
+            "name" : beer.name,
+            "description"  : beer.description,
+            "abv"  : beer.abv,
+            "idBrewery"  : beer.idBrewery
 		};
 		$scope.data.beers.push(beer);
 		beer.created_at=new Date();

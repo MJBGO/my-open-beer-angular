@@ -18,7 +18,6 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 						$location.path(newUrl.substring($location.absUrl().length - $location.url().length));
 					}
 				}else if(value=="Continuer"){
-					console.log(value);
 					onRouteChangeOff();
 					$location.path(newUrl.substring($location.absUrl().length - $location.url().length));
 				}
@@ -28,7 +27,7 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 		return;
 	});
 	
-	$scope.mode=function(brewery,force,callback){
+	$scope.update=function(brewery,force,callback){
 		if($scope._update(brewery,force,callback)==true){
 			$location.path("breweries");
 		}

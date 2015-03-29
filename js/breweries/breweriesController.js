@@ -100,10 +100,10 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save,user) 
 			$scope.activeBrewery=brewery;
 		config.activeBrewery=angular.copy($scope.activeBrewery);
 		config.activeBrewery.reference=$scope.activeBrewery;
-		$location.path("breweries/mode");
+		$location.path("breweries/update");
 	};
 	
-	$scope.mode=function(brewery,force,callback){
+	$scope.update=function(brewery,force,callback){
 		if(angular.isUndefined(brewery)){
 			brewery=$scope.activeBrewery;
 		}

@@ -24,4 +24,8 @@ Attention : Veuillez recompiler le fichier bundle.js à l'aide de browserify
 - ![done](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/11-24.png) 2- Affichage d’une bière
 - ![done](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/11-24.png) 3- Affichage d’une brasserie/brasseur
 - ![done](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/11-24.png) 4- Connexion à l’application
+
+### Fonction non implémentée par manque de temps
 - ![todo](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/17-24.png) 7- Affichage des bières par brasserie
+
+

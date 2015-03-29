@@ -1,4 +1,4 @@
-module.exports=function($scope,config,$location,rest,save,$document,modalService, $controller,user){
+module.exports=function($scope,config,$location,rest,save,$document,modalService,$controller,user){
     user.redirectIfNotLogged();
 	$controller('BreweryAddController', {$scope: $scope});
 
@@ -29,6 +29,7 @@ module.exports=function($scope,config,$location,rest,save,$document,modalService
 				rest.put(config.activeBrewery.id,$scope.data,"breweries",config.activeBrewery.name,callback);
 			else{
 				config.activeBrewery.reference.flag="Updated";
+                console.log("Updated",$scope.mode,config.activeBrewery.reference);
 				save.addOperation("Updated",$scope.mode,config.activeBrewery.reference);
 				result=true;
 			}

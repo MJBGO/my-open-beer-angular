@@ -87,6 +87,10 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save,user) 
         });
     };
 
+    $scope.mode=function(){
+        save.executeAll();
+    };
+
     $scope.edit=function(Beer){
         if(angular.isDefined(Beer))
             $scope.activeBeer=Beer;
@@ -103,21 +107,23 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save,user) 
         $location.path("beers/details");
     };
 
-    $scope.update=function(Beer,force,callback){
-        if(angular.isUndefined(Beer)){
-            Beer=$scope.activeBeer;
+    $scope.update=function(beer,force,callback){
+        if(angular.isUndefined(beer)){
+            beer=$scope.activeBeer;
         }
-        $scope.data.posted={ "Beer" : {
-            "name" : Beer.name,
-            "url"  : Beer.url
+        $scope.data.posted={ "beer" : {
+            "name" : beer.name,
+            "description"  : beer.description,
+            "abv"  : beer.abv,
+            "idBrewery"  : beer.idBrewery
         }
         };
-        $scope.data.beers.push(Beer);
+        $scope.data.beers.push(beer);
         Beer.created_at=new Date();
-        if(config.beers.mode==="log" || force){
-            rest.post($scope.data,"beers",Beer.name,callback);
+        if(config.beers.mode==="immediate" || force){
+            rest.post($scope.data,"beers",beer.name,callback);
         }else{
-            save.addOperation("New",$scope.update,Beer);
+            save.addOperation("New",$scope.update,beer);
             $location.path("beers");
         }
     };
