@@ -30,7 +30,7 @@ module.exports=function($http, $location, restConfig) {
             headers: headers
         });
         request.success(function(data) {
-            if (!data.connected) {
+            if (data.connected) {
                 alert('Une erreur est survenue');
             } else {
                 restConfig.server.privateToken = "";

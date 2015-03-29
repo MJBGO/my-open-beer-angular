@@ -16,6 +16,12 @@
         <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
     </div>
 
+    <div class="form-group" data-ng-class="{'has-error has-feedback': frmBeer.photo.$invalid && frmBeer.photo.$dirty }">
+        <label for="photo">Photo</label>
+        <input class="form-control" type="url" data-ng-model="activeBeer.photo" id="photo" name="photo">
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+    </div>
+
     <div class="form-group">
         <label for="idB">Id Brewery</label>
         <input class="form-control" type="text" data-ng-model="activeBeer.idBrewery" placeholder="idBrewery" required id="idB" name="IdB">

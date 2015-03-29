@@ -115,6 +115,7 @@ module.exports=function($scope,rest,$timeout,$location,config,$route,save,user) 
             "name" : beer.name,
             "description"  : beer.description,
             "abv"  : beer.abv,
+            "photo"  : beer.photo,
             "idBrewery"  : beer.idBrewery
         }
         };
