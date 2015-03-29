@@ -51,12 +51,24 @@ Affichage d'un brasseur
 
 Listes des bières en mode non connecté (1 bouton)
 
-![detailsbrewery](http://img11.hostingpics.net/pics/569854Capture3.png)
+![beersnotlogged](http://img11.hostingpics.net/pics/569854Capture3.png)
 
 Affichage d'une bière
 
-![detailsbrewery](http://img11.hostingpics.net/pics/924535Capture4.png)
+![detailsbeer](http://img11.hostingpics.net/pics/924535Capture4.png)
 
-Affichage d'une bière
+Modale de connexion
 
-![detailsbrewery](http://img11.hostingpics.net/pics/924535Capture4.png)
+![modalconnect](http://img11.hostingpics.net/pics/133589Capture5.png)
+
+Affichage des boutons d'éditions si connecté
+
+![buttonslogged](http://img11.hostingpics.net/pics/239096Capture6.png)
+
+Formulaire de modification d'une bière
+
+![formmodifybeer](http://img11.hostingpics.net/pics/295436Capture7.png)
+
+Affichage d'une page 401 si accès à une page d'édition en étant non connecté
+
+![401page](http://img11.hostingpics.net/pics/223855Capture.png)
