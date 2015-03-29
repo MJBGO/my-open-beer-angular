@@ -29,7 +29,7 @@ Attention : Veuillez recompiler le fichier bundle.js à l'aide de browserify. Le
 - ![todo](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/17-24.png) 7- Affichage des bières par brasserie
 
 ### Fonction bonus
-- ![todo](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/17-24.png) 8.1 - Cookie de connexion
+- ![done](https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/11-24.png) 8.1 - Cookie de connexion
 
 Nous avons implémenté cette fonction en créant un service user. La méthode check de ce service est appellée au chargement de la page et permet de vérifier si la session existe toujours.
 
